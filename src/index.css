@@ -1,0 +1,188 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------
+   Sarva Ruchi Kitchen — design tokens
+   Palette sampled from the brand logo and the printed menu pages:
+   warm ivory ground, deep maroon, burgundy, antique gold, dark brown text.
+   ------------------------------------------------------------------ */
+@theme {
+  --color-ivory: #fdf9f1;
+  --color-cream: #f8f1e2;
+  --color-beige: #f0e5d1;
+  --color-sand: #e4d5b7;
+  --color-parchment: #fbf5e9;
+
+  --color-maroon: #5a1717;
+  --color-maroon-deep: #3d0e0e;
+  --color-burgundy: #7b1e22;
+  --color-burgundy-light: #94363a;
+
+  --color-gold: #c9a227;
+  --color-gold-light: #e7ce8c;
+  --color-gold-pale: #f2e3bd;
+  --color-gold-deep: #9c7a22;
+
+  --color-emerald: #146b4a;
+
+  --color-ink: #3a2a20;
+  --color-ink-soft: #5c4636;
+  --color-ink-muted: #806957;
+
+  --font-display: "Cormorant Garamond", "Georgia", serif;
+  --font-heading: "Cinzel", "Cormorant Garamond", serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --shadow-card: 0 1px 2px rgb(58 42 32 / 0.04), 0 8px 24px -12px rgb(58 42 32 / 0.18);
+  --shadow-lift: 0 2px 4px rgb(58 42 32 / 0.06), 0 20px 44px -18px rgb(58 42 32 / 0.28);
+  --shadow-header: 0 1px 0 rgb(201 162 39 / 0.22), 0 8px 28px -18px rgb(58 42 32 / 0.35);
+}
+
+/* ------------------------------------------------------------------ base */
+@layer base {
+  html {
+    /* Guard against a stray wide element scrolling the page sideways.
+       This belongs on <html>: the same rule on <body> forces body's
+       overflow-y to compute to auto, turning body into a scroll container. */
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    /* clears the sticky header when jumping to an anchor */
+    scroll-padding-top: 6.5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-ivory);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    color: var(--color-maroon);
+    font-weight: 700;
+    line-height: 1.12;
+    text-wrap: balance;
+  }
+
+  p { text-wrap: pretty; }
+
+  ::selection {
+    background-color: var(--color-gold-light);
+    color: var(--color-maroon-deep);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-gold-deep);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  img { max-width: 100%; }
+}
+
+/* ------------------------------------------------------------------ utilities */
+@layer utilities {
+  .font-heading { font-family: var(--font-heading); }
+  .font-display { font-family: var(--font-display); }
+
+  /* small-caps gold eyebrow used above section headings */
+  .eyebrow {
+    font-family: var(--font-heading);
+    font-size: 0.7rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--color-gold-deep);
+    font-weight: 600;
+  }
+
+  .text-gold-foil {
+    background-image: linear-gradient(
+      100deg,
+      #9c7a22 0%, #c9a227 22%, #f2e3bd 42%, #c9a227 62%, #9c7a22 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .bg-parchment-texture {
+    background-color: var(--color-ivory);
+    background-image:
+      radial-gradient(at 12% 8%, rgb(201 162 39 / 0.07) 0px, transparent 55%),
+      radial-gradient(at 88% 92%, rgb(123 30 34 / 0.05) 0px, transparent 55%);
+  }
+
+  .bg-maroon-texture {
+    background-color: var(--color-maroon-deep);
+    background-image:
+      radial-gradient(at 15% 0%, rgb(123 30 34 / 0.65) 0px, transparent 60%),
+      radial-gradient(at 85% 100%, rgb(90 23 23 / 0.85) 0px, transparent 60%);
+  }
+
+  /* thin gold rule with a diamond in the middle, echoing the menu pages */
+  .rule-gold {
+    background-image: linear-gradient(
+      to right, transparent, var(--color-gold) 18%, var(--color-gold) 82%, transparent
+    );
+  }
+
+  .scrollbar-thin-gold {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-sand) transparent;
+  }
+  .scrollbar-thin-gold::-webkit-scrollbar { height: 6px; width: 6px; }
+  .scrollbar-thin-gold::-webkit-scrollbar-track { background: transparent; }
+  .scrollbar-thin-gold::-webkit-scrollbar-thumb {
+    background: var(--color-sand);
+    border-radius: 999px;
+  }
+
+  /* hides the scrollbar on the horizontal category tab strips */
+  .no-scrollbar { scrollbar-width: none; }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+}
+
+/* ------------------------------------------------------------------ motion */
+/* Scroll reveal: elements start slightly low and faded, and settle when seen. */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@keyframes srk-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes srk-rise {
+  from { opacity: 0; transform: translateY(22px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes srk-scale-in {
+  from { opacity: 0; transform: scale(0.97); }
+  to { opacity: 1; transform: none; }
+}
+
+.animate-fade-in { animation: srk-fade-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.animate-rise { animation: srk-rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.animate-scale-in { animation: srk-scale-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+}
