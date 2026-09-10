@@ -23,7 +23,7 @@ const ALT: Record<string, string> = {
   "occasion-receptions": "Long reception banquet table laid with flowers, glassware and place settings",
   "occasion-birthdays": "Birthday cake topped with rows of lit candles",
   "occasion-corporate": "Corporate catering buffet — chafing dishes and platters styled with white flowers",
-  "occasion-house-warming": "Newly built modern Indian family home at golden hour, seen from the street over its boundary wall",
+  "occasion-house-warming": "Gruhapravesam housewarming ritual — milk boiling over in a brass pot on the new stove, with marigold garlands, a brass lamp and rangoli",
   "occasion-traditional": "Decorated puja thali with lit brass diyas, marigolds and rose petals",
   "occasion-special": "Guests raising a toast under festoon lights at a celebration dinner",
   "hero-catering-spread": "Vegetable biryani, paneer curry, naan and raita served in copper bowls",

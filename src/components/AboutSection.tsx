@@ -20,8 +20,13 @@ export function AboutSection() {
         {/* Imagery */}
         <Reveal className="order-2 lg:order-1">
           <div className="grid grid-cols-2 gap-3.5 sm:gap-4">
+            {/* The stacked pair on the right is taller than this 3/4 frame, so
+                the grid stretches this cell and the photograph used to stop
+                short, stranding an empty band inside the card. size-full pins
+                it to the cell; h-full alone would let aspect-[3/4] derive the
+                width from the height and overflow sideways. */}
             <div className="group overflow-hidden rounded-2xl border border-sand shadow-card">
-              <FoodImage imageKey="veg-gravies" ratio="3/4" rounded="rounded-none" sizes="(min-width: 1024px) 23vw, 45vw" />
+              <FoodImage imageKey="veg-gravies" ratio="3/4" rounded="rounded-none" className="size-full" sizes="(min-width: 1024px) 23vw, 45vw" />
             </div>
             <div className="flex flex-col gap-3.5 sm:gap-4">
               <div className="group overflow-hidden rounded-2xl border border-sand shadow-card">

@@ -149,7 +149,7 @@ export function Navbar() {
             {isHome && (
               <span
                 className={cn(
-                  "hidden whitespace-nowrap font-display text-[0.6rem] tracking-[0.06em] text-ink-muted transition-all duration-500 sm:block",
+                  "block whitespace-nowrap font-display text-[0.6rem] tracking-[0.06em] text-ink-muted transition-all duration-500",
                   scrolled ? "mt-0 max-h-0 opacity-0" : "mt-0.5 max-h-4 opacity-100",
                 )}
               >

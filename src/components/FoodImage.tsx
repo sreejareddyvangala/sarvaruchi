@@ -60,6 +60,12 @@ export function FoodImage({
         decoding={priority ? "sync" : "async"}
         fetchPriority={priority ? "high" : "auto"}
         onLoad={() => setLoaded(true)}
+        // A cached image can finish loading before React attaches onLoad, in
+        // which case that event never fires and the picture would stay at
+        // opacity-0 forever. Catch that case on mount from the element itself.
+        ref={(el) => {
+          if (el?.complete && el.naturalWidth > 0) setLoaded(true);
+        }}
         className={cn(
           "size-full object-cover transition-[opacity,transform] duration-700 ease-out",
           loaded ? "opacity-100" : "opacity-0",
