@@ -1,5 +1,5 @@
 import { useId, useState, type FormEvent } from "react";
-import { EVENT_TYPES, PREFERENCES, PREFERRED_MENUS } from "../data/catering";
+import { EVENT_TYPES, PREFERENCES } from "../data/catering";
 import { buildEnquiryMessage, type EnquiryDetails } from "../lib/whatsapp";
 import { useWhatsApp } from "./WhatsAppProvider";
 import { Button } from "./Button";
@@ -14,7 +14,6 @@ const EMPTY: EnquiryDetails = {
   guests: "",
   preference: "",
   location: "",
-  preferredMenu: "",
   requirements: "",
 };
 
@@ -52,16 +51,18 @@ function Field({
   label,
   required,
   error,
+  className,
   children,
 }: {
   id: string;
   label: string;
   required?: boolean;
   error?: string;
+  className?: string;
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex flex-col gap-1.5">
+    <div className={cn("flex flex-col gap-1.5", className)}>
       <label
         htmlFor={id}
         className="font-heading text-[0.62rem] font-semibold uppercase tracking-[0.16em] text-ink-soft"
@@ -221,7 +222,8 @@ export function EnquiryForm() {
           />
         </Field>
 
-        <Field id={uid + "-location"} label="Location">
+        {/* the last field of an odd count, so it takes the full row */}
+        <Field id={uid + "-location"} label="Location" className="sm:col-span-2">
           <input
             id={uid + "-location"}
             type="text"
@@ -229,16 +231,6 @@ export function EnquiryForm() {
             value={values.location}
             onChange={(e) => set("location")(e.target.value)}
             className={inputClass(false)}
-          />
-        </Field>
-
-        <Field id={uid + "-preferredMenu"} label="Preferred Menu">
-          <Select
-            id={uid + "-preferredMenu"}
-            value={values.preferredMenu}
-            onChange={set("preferredMenu")}
-            placeholder="Select a menu"
-            options={PREFERRED_MENUS}
           />
         </Field>
       </div>

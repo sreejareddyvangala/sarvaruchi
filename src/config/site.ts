@@ -53,30 +53,14 @@ export const NAV_LINKS = [
   { label: "Home", to: "/" },
   { label: "About", to: "/#about" },
   { label: "Catering", to: "/#catering" },
-  { label: "Menu", to: "/menu" },
+  { label: "Testimonials", to: "/#testimonials" },
+  { label: "Blog", to: "/#blog" },
   { label: "Gallery", to: "/#gallery" },
   { label: "Contact", to: "/#contact" },
 ] as const;
 
-/**
- * What the header shows, in the order the sections appear on the home page.
- * Menu points at the vegetarian / non-vegetarian pair on this page — the same
- * place the hero's "Explore Our Menu" button goes — while the footer keeps its
- * links through to the menu pages themselves.
- */
-export const HEADER_NAV_LINKS = [
-  { label: "Home", to: "/" },
-  { label: "About", to: "/#about" },
-  { label: "Catering", to: "/#catering" },
-  { label: "Menu", to: "/#menu" },
-  { label: "Gallery", to: "/#gallery" },
-  { label: "Contact", to: "/#contact" },
-] as const;
-
-export const MENU_PDFS = {
-  vegetarian: "/menu/sarva-ruchi-kitchen-vegetarian-menu.pdf",
-  nonVegetarian: "/menu/sarva-ruchi-kitchen-non-vegetarian-menu.pdf",
-} as const;
+/** What the header shows: the same sections, in the order they appear on the home page. */
+export const HEADER_NAV_LINKS = NAV_LINKS;
 
 export const BRAND_ASSETS = {
   logo: "/brand/logo.png",

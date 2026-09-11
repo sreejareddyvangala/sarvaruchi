@@ -1,27 +1,16 @@
 import { Link } from "react-router-dom";
-import { BRAND_ASSETS, BUSINESS_NAME, MENU_PDFS, NAV_LINKS, TAGLINE } from "../config/site";
+import { BRAND_ASSETS, BUSINESS_NAME, NAV_LINKS, TAGLINE } from "../config/site";
 import { Ornament } from "./Ornament";
-import { DocumentIcon } from "./Icons";
-import { useWhatsApp } from "./WhatsAppProvider";
-import { WHATSAPP_MESSAGES } from "../lib/whatsapp";
-
-const MENU_LINKS = [
-  { label: "Menu Overview", to: "/menu" },
-  { label: "Vegetarian Menu", to: "/menu/vegetarian" },
-  { label: "Non-Vegetarian Menu", to: "/menu/non-vegetarian" },
-  { label: "Food Gallery", to: "/gallery" },
-];
 
 export function Footer() {
-  const { openWhatsApp } = useWhatsApp();
   const year = new Date().getFullYear();
 
   return (
     <footer className="bg-maroon-texture text-cream/80">
       <div className="mx-auto w-full max-w-[84rem] px-4 pb-10 pt-16 sm:px-6 lg:px-8 lg:pt-20">
-        <div className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr_1fr]">
+        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-[1.15fr_0.85fr_1fr]">
           {/* Brand */}
-          <div className="flex flex-col items-start">
+          <div className="flex flex-col items-start sm:col-span-2 lg:col-span-1">
             <img
               src={BRAND_ASSETS.emblem}
               alt=""
@@ -43,78 +32,35 @@ export function Footer() {
           </div>
 
           {/* Links */}
-          <nav aria-label="Footer" className="grid grid-cols-2 gap-8 sm:gap-10">
-            <div>
-              <h3 className="font-heading text-[0.72rem] uppercase tracking-[0.22em] text-gold-light">
-                Explore
-              </h3>
-              <ul className="mt-3 flex flex-col gap-0.5">
-                {NAV_LINKS.map((link) => (
-                  <li key={link.label}>
-                    <Link
-                      to={link.to}
-                      className="inline-block py-1.5 text-sm text-cream/65 transition-colors duration-300 hover:text-gold-light"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="font-heading text-[0.72rem] uppercase tracking-[0.22em] text-gold-light">
-                Our Menu
-              </h3>
-              <ul className="mt-3 flex flex-col gap-0.5">
-                {MENU_LINKS.map((link) => (
-                  <li key={link.label}>
-                    <Link
-                      to={link.to}
-                      className="inline-block py-1.5 text-sm text-cream/65 transition-colors duration-300 hover:text-gold-light"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-                <li>
-                  <a
-                    href={MENU_PDFS.vegetarian}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 py-1.5 text-sm text-cream/65 transition-colors duration-300 hover:text-gold-light"
+          <nav aria-label="Footer">
+            <h3 className="font-heading text-[0.72rem] uppercase tracking-[0.22em] text-gold-light">
+              Explore
+            </h3>
+            <ul className="mt-3 grid grid-cols-2 gap-x-6 gap-y-0.5 sm:grid-cols-1">
+              {NAV_LINKS.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    to={link.to}
+                    className="inline-block py-1.5 text-sm text-cream/65 transition-colors duration-300 hover:text-gold-light"
                   >
-                    <DocumentIcon className="size-3.5" />
-                    Veg Menu PDF
-                  </a>
+                    {link.label}
+                  </Link>
                 </li>
-                <li>
-                  <a
-                    href={MENU_PDFS.nonVegetarian}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 py-1.5 text-sm text-cream/65 transition-colors duration-300 hover:text-gold-light"
-                  >
-                    <DocumentIcon className="size-3.5" />
-                    Non-Veg Menu PDF
-                  </a>
-                </li>
-              </ul>
-            </div>
+              ))}
+            </ul>
           </nav>
 
-          {/* Contact */}
+          {/* Catering enquiries */}
           <div>
             <h3 className="font-heading text-[0.72rem] uppercase tracking-[0.22em] text-gold-light">
               Catering Enquiries
             </h3>
-            <button
-              type="button"
-              onClick={() => openWhatsApp(WHATSAPP_MESSAGES.quote)}
-              className="mt-4 w-full rounded-full border border-gold/45 bg-gold/10 py-2.5 font-heading text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-gold-light transition hover:bg-gold/20"
+            <Link
+              to="/#contact"
+              className="mt-4 flex w-full items-center justify-center rounded-full border border-gold/45 bg-gold/10 py-2.5 font-heading text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-gold-light transition hover:bg-gold/20"
             >
-              Get a Catering Quote
-            </button>
+              Catering Enquiry
+            </Link>
           </div>
         </div>
 

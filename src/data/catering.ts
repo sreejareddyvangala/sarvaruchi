@@ -99,61 +99,6 @@ export const OCCASIONS: Occasion[] = [
   },
 ];
 
-/** "Why choose us" — descriptive only, no awards, counts or certifications claimed. */
-export const WHY_US = [
-  {
-    title: "Authentic Flavours",
-    description:
-      "Andhra and Telangana classics, Punjabi dhaba favourites and South Indian staples, cooked the traditional way.",
-  },
-  {
-    title: "Premium Menu Selection",
-    description:
-      "An extensive vegetarian menu and a premium non-vegetarian package, both available to browse in full.",
-  },
-  {
-    title: "Customized Catering",
-    description:
-      "Pick the courses, live stations and desserts you want — the menu is assembled around your event.",
-  },
-  {
-    title: "Beautiful Food Presentation",
-    description:
-      "Copper handis, brass thalis and considered plating, so the buffet looks as good as it tastes.",
-  },
-  {
-    title: "Professional Catering Service",
-    description:
-      "Live counters, podi and paan stations, salad bars and service staff, arranged as part of the catering.",
-  },
-  {
-    title: "Menus for Every Occasion",
-    description:
-      "Weddings, receptions, corporate events, house functions and celebrations of every size.",
-  },
-] as const;
-
-export const HOW_IT_WORKS = [
-  {
-    step: "01",
-    title: "Tell Us About Your Event",
-    description:
-      "Share the occasion, date, guest count and location over WhatsApp or the enquiry form.",
-  },
-  {
-    step: "02",
-    title: "Customize Your Menu",
-    description:
-      "Choose vegetarian, non-vegetarian or both, then build the menu course by course with us.",
-  },
-  {
-    step: "03",
-    title: "Celebrate & Enjoy",
-    description:
-      "We handle the cooking, the live counters and the service on the day of your celebration.",
-  },
-] as const;
-
 export const EVENT_TYPES = [
   "Wedding",
   "Engagement",
@@ -167,10 +112,3 @@ export const EVENT_TYPES = [
 ] as const;
 
 export const PREFERENCES = ["Vegetarian", "Non-Vegetarian", "Both"] as const;
-
-export const PREFERRED_MENUS = [
-  "Premium Vegetarian Menu",
-  "Premium Non-Vegetarian Menu",
-  "Both Menus",
-  "Not decided yet",
-] as const;

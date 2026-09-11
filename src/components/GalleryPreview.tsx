@@ -33,6 +33,7 @@ export function GalleryPreview() {
                   <div className="aspect-square overflow-hidden sm:aspect-[4/3]">
                     <img
                       src={image.src}
+                      srcSet={image.srcSet}
                       alt={image.alt}
                       loading="lazy"
                       decoding="async"

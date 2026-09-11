@@ -1,17 +1,27 @@
 /**
  * Food image registry.
  *
- * Every photograph here is taken from the Sarva Ruchi Kitchen menu material
- * supplied for this site — no stock photography is used. Each key maps to the
- * menu category the picture actually belongs to, so an image is never shown
- * next to food it does not depict.
+ * ALT lists the images supplied with the site under /food — the home page hero,
+ * the occasion cards and the original food artwork. PHOTOS lists the gallery
+ * and About photographs under /gallery: openly licensed Unsplash photographs
+ * chosen to match the blog's topics, each with a smaller rendition for tiles
+ * and its photographer's credit (all listed in CREDITS.md).
  */
 
-export type FoodImage = { src: string; alt: string };
+export type FoodImage = {
+  src: string;
+  alt: string;
+  /** smaller rendition for tiles, where one exists */
+  srcSet?: string;
+  /** photographer credit, shown in the gallery viewer */
+  credit?: string;
+};
 
 const path = (key: string) => `/food/${key}.webp`;
 
 const ALT: Record<string, string> = {
+  "hero-banana-leaf-feast":
+    "A traditional feast on a banana leaf — biryani in a clay pot, dal, fish curry, chicken fry, steamed rice, ghee, pickles, chutney in a stone mortar, sweets and pesarattu with upma",
   "hero-celebration":
     "Indian wedding catering spread — biryani in hammered copper handis, raita, brass lamps and rose petals on a banana leaf, with a framed sign reading Good Food Brings People Together",
   "veg-thali-ref":
@@ -93,24 +103,57 @@ const ALT: Record<string, string> = {
   "kulfi-frozen": "Matka kulfi, kulfi sticks and black forest ice cream cake",
 };
 
-export const FOOD_IMAGES: Record<string, FoodImage> = Object.fromEntries(
-  Object.entries(ALT).map(([key, alt]) => [key, { src: path(key), alt }]),
-);
+/** 4:3 photographs come as 1600 and 800 wide; the portrait one as 1200 and 600. */
+const photo = (key: string, alt: string, photographer: string, portrait = false): [string, FoodImage] => [
+  key,
+  {
+    src: `/gallery/${key}.webp`,
+    srcSet: portrait
+      ? `/gallery/${key}-sm.webp 600w, /gallery/${key}.webp 1200w`
+      : `/gallery/${key}-sm.webp 800w, /gallery/${key}.webp 1600w`,
+    alt,
+    credit: `Photo: ${photographer} / Unsplash`,
+  },
+];
+
+const PHOTOS: Record<string, FoodImage> = Object.fromEntries([
+  // wedding catering
+  photo("wedding-reception-canopy", "Outdoor wedding reception under white draped canopies with chandeliers, round dining tables and a buffet counter along the lawn", "Vidit Goswami"),
+  photo("wedding-buffet-service", "Buffet counter of steel chafing dishes with hot dishes and plates set out, beside an arrangement of red roses and white orchids", "Edwin Petrus"),
+  photo("wedding-live-counter", "Chef in whites and gloves preparing food at a live counter under brass heat lamps at an evening wedding", "Charanjeet Dhiman"),
+  photo("wedding-mandap-hall", "Banquet hall with a grand chandelier and golden drapes around a flower-decked wedding mandap", "Amish Thakkar"),
+  // house warming
+  photo("housewarming-entrance", "Painted entrance of a traditional Indian home with a marigold toran over the doorway and potted plants on either side", "Rishi2001 Chhapia"),
+  photo("housewarming-kalash", "Coconut tied with red thread on mango leaves over a copper kalash, set out for a puja", "Happy Films"),
+  photo("housewarming-rangoli-diyas", "Flower-petal rangoli on the floor, ringed with lit clay diyas", "Suchandra Roy Chowdhury"),
+  photo("housewarming-idli-breakfast", "Idlis with sambar and chutneys in white bowls, laid out on a banana leaf", "Mayur Roxan"),
+  // wedding food
+  photo("weddingfood-thali-spread", "Steel thalis with katoris of dal, curries, vegetables and raita, with bowls of rice and a chicken fry", "Zoshua Colah"),
+  photo("weddingfood-biryani", "Vegetable biryani with peas and fresh coriander in a large steel catering pan", "Rashpal Singh"),
+  photo("weddingfood-palak-paneer", "Palak paneer finished with cream, served with layered paratha, whole spices, shallots and dried chillies", "Chetanya Sharma"),
+  photo("weddingfood-live-jalebi", "Jalebi being piped into hot oil in a wide kadai at a live sweet counter", "fuseviews"),
+  // corporate events
+  photo("corporate-office-buffet", "Catering spread of croissants, tarts, dips and small bites laid out beside a window high above the city", "Culinarissimo"),
+  photo("corporate-plated-lunch", "Makhani curry with a cream swirl, saffron rice, naan, kebabs and a second curry served on white plates", "Snappr"),
+  photo("corporate-tea-break", "Samosas with green chutney beside a glass of masala chai", "prajakta bagade"),
+  photo("corporate-snack-platter", "Platter of samosas, spring rolls, pakoras, chana and a slice of cake for a tea break", "Mohammad Fahim"),
+  // traditions
+  photo("traditions-banana-leaf-feast", "A regional feast on a banana leaf — onion uttapam, idlis, chicken fry and mutton, with podis and ghee in steel cups", "Anil Sharma"),
+  photo("traditions-chaat-counter", "Chaat counter with bowls of sev, chopped onion and tomato, green chutney and spice mixes", "Zoshua Colah"),
+  photo("traditions-diyas", "Lit clay diyas on a brass plate surrounded by rose petals and marigolds", "Udayaditya Barua"),
+  photo("traditions-barfi", "Pistachio-topped milk barfi on a black leaf-shaped plate beside a lotus diya", "VD Photography"),
+  // about section
+  photo("about-biryani-handi", "Biryani topped with fried onions and mint in a clay handi, on a red cloth", "Anil Sharma", true),
+  photo("about-idli-spices", "Idlis topped with curry leaves on a banana leaf, with sambar and chutneys in clay pots and whole spices around", "Prateek Jaiswal"),
+  photo("about-indian-sweets", "A bowl of assorted Indian sweets — motichoor laddu, gulab jamun, coconut laddu, rasgulla, cham cham and barfi", "Rimsha Noor"),
+]);
+
+export const FOOD_IMAGES: Record<string, FoodImage> = {
+  ...Object.fromEntries(Object.entries(ALT).map(([key, alt]) => [key, { src: path(key), alt }])),
+  ...PHOTOS,
+};
 
 /** Look up an image by key. Returns undefined when a category has no photograph. */
 export function foodImage(key?: string): FoodImage | undefined {
   return key ? FOOD_IMAGES[key] : undefined;
 }
-
-export const MENU_PAGE_IMAGES = {
-  vegetarian: Array.from({ length: 20 }, (_, i) => ({
-    src: `/menu-pages/veg-${String(i + 1).padStart(2, "0")}.webp`,
-    alt: `Sarva Ruchi Kitchen premium vegetarian menu, page ${i + 1} of 20`,
-    page: i + 1,
-  })),
-  nonVegetarian: Array.from({ length: 4 }, (_, i) => ({
-    src: `/menu-pages/nonveg-${String(i + 1).padStart(2, "0")}.webp`,
-    alt: `Sarva Ruchi Kitchen premium non-vegetarian menu, page ${i + 1} of 4`,
-    page: i + 1,
-  })),
-} as const;

@@ -35,6 +35,7 @@ export function FoodGallery({
           src: image?.src ?? "",
           alt: image?.alt ?? item.caption,
           caption: item.caption,
+          credit: image?.credit,
         };
       }),
     [visible],
@@ -101,6 +102,7 @@ export function FoodGallery({
                 <div className="aspect-square overflow-hidden sm:aspect-[4/3]">
                   <img
                     src={image.src}
+                    srcSet={image.srcSet}
                     alt={image.alt}
                     loading="lazy"
                     decoding="async"

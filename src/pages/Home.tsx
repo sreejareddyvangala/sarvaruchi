@@ -1,9 +1,8 @@
 import { Hero } from "../components/Hero";
-import { VegNonVegSplit } from "../components/VegNonVegSplit";
-import { CateringCards } from "../components/CateringCards";
 import { AboutSection } from "../components/AboutSection";
-import { WhyUs } from "../components/WhyUs";
-import { HowItWorks } from "../components/HowItWorks";
+import { CateringCards } from "../components/CateringCards";
+import { Testimonials } from "../components/Testimonials";
+import { BlogSection } from "../components/BlogSection";
 import { GalleryPreview } from "../components/GalleryPreview";
 import { ContactSection } from "../components/ContactSection";
 import { usePageMeta } from "../lib/usePageMeta";
@@ -14,14 +13,13 @@ export function Home() {
 
   return (
     <>
-      {/* hero, about, catering, menu, … gallery, contact — the same order the
-          header lists, so scrolling down walks through the nav left to right */}
+      {/* hero, about, catering, testimonials, blog, gallery, contact — the same
+          order the header lists, so scrolling down walks through the nav left to right */}
       <Hero />
       <AboutSection />
       <CateringCards />
-      <VegNonVegSplit />
-      <WhyUs />
-      <HowItWorks />
+      <Testimonials />
+      <BlogSection />
       <GalleryPreview />
       <ContactSection />
     </>

@@ -25,12 +25,11 @@ export function ContactSection() {
         <SectionHeading
           eyebrow="Get In Touch"
           title={<>Let&rsquo;s Make Your Celebration Delicious.</>}
-          description="Send us the details of your event and we will come back with a menu and a quotation."
+          description="Send us the details of your event and we will come back with catering options and a quotation."
         />
 
-        {/* Call us, on its own under the heading now that the details panel
-            has gone — the enquiry form carries the rest of the section. */}
-        <Reveal className="mt-7 flex justify-center">
+        {/* Call us; the enquiry form carries the rest of the section. */}
+        <Reveal className="mt-7 flex flex-wrap items-center justify-center gap-3">
           <a
             href={telUrl(CONTACT_LINES[0].tel)}
             className="inline-flex h-11 items-center justify-center gap-2 rounded-full border border-maroon bg-maroon px-6 font-heading text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-cream shadow-card transition-all duration-300 hover:-translate-y-0.5 hover:bg-maroon-deep hover:shadow-lift"

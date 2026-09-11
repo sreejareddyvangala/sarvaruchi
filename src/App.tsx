@@ -1,13 +1,11 @@
 import { useEffect, useRef } from "react";
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
 import { FloatingWhatsApp } from "./components/FloatingWhatsApp";
 import { WhatsAppProvider } from "./components/WhatsAppProvider";
 import { Home } from "./pages/Home";
-import { MenuLanding } from "./pages/MenuLanding";
-import { VegetarianMenu } from "./pages/VegetarianMenu";
-import { NonVegetarianMenu } from "./pages/NonVegetarianMenu";
+import { BlogArticle } from "./pages/BlogArticle";
 import { GalleryPage } from "./pages/GalleryPage";
 import { NotFound } from "./pages/NotFound";
 
@@ -109,9 +107,9 @@ export default function App() {
       <main id="main">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/menu" element={<MenuLanding />} />
-          <Route path="/menu/vegetarian" element={<VegetarianMenu />} />
-          <Route path="/menu/non-vegetarian" element={<NonVegetarianMenu />} />
+          {/* the blog itself is a section of the home page; each article has its own page */}
+          <Route path="/blog" element={<Navigate to="/#blog" replace />} />
+          <Route path="/blog/:slug" element={<BlogArticle />} />
           <Route path="/gallery" element={<GalleryPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

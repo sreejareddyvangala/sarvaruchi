@@ -2,9 +2,9 @@ import { useCallback, useEffect } from "react";
 import { useEscape, useScrollLock } from "../lib/useReveal";
 import { CloseIcon } from "./Icons";
 
-export type LightboxSlide = { src: string; alt: string; caption?: string };
+export type LightboxSlide = { src: string; alt: string; caption?: string; credit?: string };
 
-/** Full-screen image viewer used by the gallery and the menu page browser. */
+/** Full-screen image viewer used by the food gallery. */
 export function Lightbox({
   slides,
   index,
@@ -50,9 +50,14 @@ export function Lightbox({
       aria-label={slide.caption ?? slide.alt}
     >
       <div className="flex items-center justify-between gap-4 px-4 py-3 sm:px-6">
-        <p className="min-w-0 truncate font-heading text-[0.7rem] uppercase tracking-[0.18em] text-gold-light">
-          {slide.caption ?? ""}
-        </p>
+        <div className="min-w-0">
+          <p className="truncate font-heading text-[0.7rem] uppercase tracking-[0.18em] text-gold-light">
+            {slide.caption ?? ""}
+          </p>
+          {slide.credit && (
+            <p className="mt-0.5 truncate text-[0.66rem] text-cream/50">{slide.credit}</p>
+          )}
+        </div>
         <div className="flex items-center gap-3">
           <span className="font-heading text-[0.68rem] tracking-[0.14em] text-cream/55">
             {index + 1} / {slides.length}

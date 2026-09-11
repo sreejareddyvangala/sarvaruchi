@@ -1,16 +1,15 @@
 import { BUSINESS_NAME, TAGLINE } from "../config/site";
-import { countCategories, countItems } from "../data/menuTypes";
-import { VEG_MENU } from "../data/vegMenu";
 import { FoodImage } from "./FoodImage";
 import { Ornament } from "./Ornament";
 import { Reveal } from "./Reveal";
 import { ButtonLink } from "./Button";
 import { ArrowRightIcon } from "./Icons";
 
+// service highlights, each one already described elsewhere on the site
 const FACTS = [
-  { value: `${countCategories(VEG_MENU)}`, label: "Vegetarian Categories" },
-  { value: `${countItems(VEG_MENU)}+`, label: "Dishes to Choose From" },
-  { value: "2", label: "Premium Menus" },
+  { value: "Veg & Non-Veg", label: "Catering Options" },
+  { value: "Live Counters", label: "Chaat & Podi Stations" },
+  { value: "Every Occasion", label: "Weddings to Corporate Events" },
 ];
 
 export function AboutSection() {
@@ -26,14 +25,14 @@ export function AboutSection() {
                 it to the cell; h-full alone would let aspect-[3/4] derive the
                 width from the height and overflow sideways. */}
             <div className="group overflow-hidden rounded-2xl border border-sand shadow-card">
-              <FoodImage imageKey="veg-gravies" ratio="3/4" rounded="rounded-none" className="size-full" sizes="(min-width: 1024px) 23vw, 45vw" />
+              <FoodImage imageKey="about-biryani-handi" ratio="3/4" rounded="rounded-none" className="size-full" sizes="(min-width: 1024px) 23vw, 45vw" />
             </div>
             <div className="flex flex-col gap-3.5 sm:gap-4">
               <div className="group overflow-hidden rounded-2xl border border-sand shadow-card">
-                <FoodImage imageKey="south-indian" ratio="4/3" rounded="rounded-none" sizes="(min-width: 1024px) 23vw, 45vw" />
+                <FoodImage imageKey="about-idli-spices" ratio="4/3" rounded="rounded-none" sizes="(min-width: 1024px) 23vw, 45vw" />
               </div>
               <div className="group overflow-hidden rounded-2xl border border-sand shadow-card">
-                <FoodImage imageKey="heritage-desserts" ratio="4/3" rounded="rounded-none" sizes="(min-width: 1024px) 23vw, 45vw" />
+                <FoodImage imageKey="about-indian-sweets" ratio="4/3" rounded="rounded-none" sizes="(min-width: 1024px) 23vw, 45vw" />
               </div>
             </div>
           </div>
@@ -53,12 +52,11 @@ export function AboutSection() {
               that a single caterer should be able to cover every flavour a celebration calls for.
             </p>
             <p className="mt-4 text-[0.95rem] leading-relaxed text-ink-muted">
-              Our menu runs from Andhra and Telangana home cooking to Punjabi dhaba classics,
+              Our kitchen runs from Andhra and Telangana home cooking to Punjabi dhaba classics,
               South Indian breakfasts, live chaat and podi counters, Pan Asian and Continental
               courses, and a dessert list that stretches from heritage Indian sweets to pastry,
-              cheesecake and an ice cream parlour. Both a full vegetarian menu and a premium
-              non-vegetarian catering package are available, and every event menu is assembled
-              course by course with you.
+              cheesecake and an ice cream parlour. Both vegetarian and premium non-vegetarian
+              catering are available, and every event is planned course by course with you.
             </p>
 
             <p className="mt-6 font-display text-xl italic text-maroon">{TAGLINE}</p>
@@ -69,12 +67,12 @@ export function AboutSection() {
               {FACTS.map((fact) => (
                 <div
                   key={fact.label}
-                  className="flex flex-col-reverse rounded-xl border border-sand bg-cream/70 px-3 py-4 text-center"
+                  className="flex flex-col-reverse justify-center rounded-xl border border-sand bg-cream/70 px-2 py-4 text-center sm:px-3"
                 >
-                  <dt className="mt-1 font-heading text-[0.58rem] uppercase leading-tight tracking-[0.14em] text-gold-deep">
+                  <dt className="mt-1.5 text-balance font-heading text-[0.56rem] uppercase leading-snug tracking-[0.12em] text-gold-deep sm:text-[0.58rem] sm:tracking-[0.14em]">
                     {fact.label}
                   </dt>
-                  <dd className="font-display text-2xl font-bold text-maroon sm:text-3xl">
+                  <dd className="text-balance font-display text-[1.12rem] font-bold leading-tight text-maroon sm:text-[1.4rem] lg:text-[1.5rem]">
                     {fact.value}
                   </dd>
                 </div>
@@ -82,12 +80,12 @@ export function AboutSection() {
             </dl>
 
             <ButtonLink
-              to="/menu"
+              to="/#contact"
               variant="outline"
               className="mt-8"
               iconRight={<ArrowRightIcon className="size-4" />}
             >
-              Browse the Full Menu
+              Catering Enquiry
             </ButtonLink>
           </Reveal>
         </div>

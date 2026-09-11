@@ -11,7 +11,7 @@ export default defineConfig({
     strictPort: true,
   },
   build: {
-    // menu PDFs and page images are served as-is from /public
+    // photographs are served as-is from /public
     assetsInlineLimit: 2048,
   },
 });

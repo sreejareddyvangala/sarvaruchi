@@ -1,7 +1,7 @@
 import { usePageMeta } from "../lib/usePageMeta";
 import { BUSINESS_NAME } from "../config/site";
 import { GALLERY } from "../data/gallery";
-import { MenuPageHeader } from "../components/menu/MenuPageHeader";
+import { PageHeader } from "../components/PageHeader";
 import { FoodGallery } from "../components/FoodGallery";
 import { Reveal } from "../components/Reveal";
 import { ButtonLink } from "../components/Button";
@@ -12,12 +12,12 @@ import { Ornament } from "../components/Ornament";
 export function GalleryPage() {
   usePageMeta(
     "Food Gallery | " + BUSINESS_NAME,
-    "A gallery of Sarva Ruchi Kitchen catering — biryanis, starters, live counters, South Indian dishes, breads and desserts.",
+    "Photographs of wedding catering, house warming celebrations, Indian wedding food, corporate events and traditional celebrations.",
   );
 
   return (
     <>
-      <MenuPageHeader
+      <PageHeader
         breadcrumb={[
           { label: "Home", to: "/" },
           { label: "Gallery", to: "/gallery" },
@@ -26,18 +26,18 @@ export function GalleryPage() {
         title="Our Food"
         description={
           GALLERY.length +
-          " dishes and spreads photographed for the Sarva Ruchi Kitchen menu — filter by course, or tap any image to view it full size."
+          " photographs of weddings, house warmings, corporate events and traditional celebrations — filter by occasion, or tap any image to view it full size."
         }
         actions={
           <>
             <WhatsAppButton message="gallery" size="lg" label="Enquire on WhatsApp" />
             <ButtonLink
-              to="/menu"
+              to="/#contact"
               variant="outline-light"
               size="lg"
               iconRight={<ArrowRightIcon className="size-4" />}
             >
-              Explore Our Menu
+              Catering Enquiry
             </ButtonLink>
           </>
         }
@@ -50,11 +50,8 @@ export function GalleryPage() {
           <Ornament className="mt-14" />
 
           <Reveal className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-            <ButtonLink to="/menu/vegetarian" variant="primary" size="lg">
-              Vegetarian Menu
-            </ButtonLink>
-            <ButtonLink to="/menu/non-vegetarian" variant="outline" size="lg">
-              Non-Vegetarian Menu
+            <ButtonLink to="/#contact" variant="primary" size="lg">
+              Catering Enquiry
             </ButtonLink>
           </Reveal>
         </div>

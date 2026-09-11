@@ -3,7 +3,7 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import { BRAND_ASSETS, BUSINESS_NAME, HEADER_NAV_LINKS, TAGLINE } from "../config/site";
 import { cn } from "../lib/cn";
 import { useScrollLock } from "../lib/useReveal";
-import { MenuIcon, CloseIcon } from "./Icons";
+import { HamburgerIcon, CloseIcon } from "./Icons";
 import { Ornament } from "./Ornament";
 
 /** The home-page sections the header links to, taken from the links themselves. */
@@ -19,9 +19,7 @@ const SECTION_IDS = HEADER_NAV_LINKS.filter((link) => link.to.startsWith("/#")).
  * A section counts as reached once its top passes under the sticky header, so
  * the highlight changes on arrival rather than early. Of the sections that have
  * passed that line, the one nearest to it wins, so the answer does not depend
- * on the order of the links and the sections in between (the menu split, why
- * us, how it works) leave the last reached section highlighted rather than
- * clearing it.
+ * on the order of the links.
  */
 function useActiveSection(enabled: boolean) {
   const [active, setActive] = useState<string | null>(null);
@@ -158,7 +156,7 @@ export function Navbar() {
             )}
           </Link>
 
-          <nav aria-label="Primary" className="hidden items-center gap-1 min-[880px]:flex">
+          <nav aria-label="Primary" className="hidden items-center gap-1 min-[1024px]:flex">
             {HEADER_NAV_LINKS.map((link) => (
               <NavLink
                 key={link.label}
@@ -177,11 +175,11 @@ export function Navbar() {
           <button
             type="button"
             onClick={() => setOpen(true)}
-            aria-label="Open menu"
+            aria-label="Open navigation"
             aria-expanded={open}
-            className="flex size-10 shrink-0 items-center justify-center rounded-full border border-gold/40 text-maroon transition hover:border-gold hover:bg-beige/60 min-[880px]:hidden"
+            className="flex size-10 shrink-0 items-center justify-center rounded-full border border-gold/40 text-maroon transition hover:border-gold hover:bg-beige/60 min-[1024px]:hidden"
           >
-            <MenuIcon className="size-5" />
+            <HamburgerIcon className="size-5" />
           </button>
         </div>
 
@@ -196,7 +194,7 @@ export function Navbar() {
       {/* Mobile drawer */}
       <div
         className={cn(
-          "fixed inset-0 z-[110] min-[880px]:hidden",
+          "fixed inset-0 z-[110] min-[1024px]:hidden",
           open ? "pointer-events-auto" : "pointer-events-none",
         )}
         aria-hidden={!open}
@@ -204,7 +202,7 @@ export function Navbar() {
         <button
           type="button"
           tabIndex={open ? 0 : -1}
-          aria-label="Close menu"
+          aria-label="Close navigation"
           onClick={() => setOpen(false)}
           className={cn(
             "absolute inset-0 bg-maroon-deep/55 backdrop-blur-[2px] transition-opacity duration-500",
@@ -227,7 +225,7 @@ export function Navbar() {
             <button
               type="button"
               onClick={() => setOpen(false)}
-              aria-label="Close menu"
+              aria-label="Close navigation"
               tabIndex={open ? 0 : -1}
               className="flex size-10 items-center justify-center rounded-full border border-sand text-maroon transition hover:bg-beige"
             >

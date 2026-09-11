@@ -17,7 +17,7 @@ export function PhoneIcon({ className }: IconProps) {
   );
 }
 
-export function MenuIcon({ className }: IconProps) {
+export function HamburgerIcon({ className }: IconProps) {
   return (
     <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" aria-hidden="true">
       <path d="M4 7h16M4 12h16M4 17h16" />
@@ -54,15 +54,6 @@ export function ArrowRightIcon({ className }: IconProps) {
   return (
     <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       <path d="M5 12h14M13 6l6 6-6 6" />
-    </svg>
-  );
-}
-
-export function DocumentIcon({ className }: IconProps) {
-  return (
-    <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M14 3v4a1 1 0 0 0 1 1h4" />
-      <path d="M19 9v9a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 5 18V6a2.5 2.5 0 0 1 2.5-2.5H14L19 9Z" />
     </svg>
   );
 }

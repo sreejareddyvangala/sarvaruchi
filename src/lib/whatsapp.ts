@@ -12,11 +12,6 @@ export const WHATSAPP_MESSAGES = {
   hero: "Hello Sarva Ruchi Kitchen, I would like to enquire about catering for my event.",
   quote:
     "Hello Sarva Ruchi Kitchen, I would like to request a catering quote for my event.",
-  menu: "Hello Sarva Ruchi Kitchen, I would like to know more about your catering menu.",
-  vegetarian:
-    "Hello Sarva Ruchi Kitchen, I am interested in the vegetarian catering menu.",
-  nonVegetarian:
-    "Hello Sarva Ruchi Kitchen, I am interested in the non-vegetarian catering menu.",
   gallery:
     "Hello Sarva Ruchi Kitchen, I saw your food gallery and would like to enquire about catering.",
   contact:
@@ -56,7 +51,6 @@ export type EnquiryDetails = {
   guests: string;
   preference: string;
   location: string;
-  preferredMenu: string;
   requirements: string;
 };
 
@@ -76,7 +70,6 @@ export function buildEnquiryMessage(d: EnquiryDetails): string {
     line("Guests", d.guests),
     line("Preference", d.preference),
     line("Location", d.location),
-    line("Preferred Menu", d.preferredMenu),
     line("Requirements", d.requirements),
     "",
     "Please share the catering details and quotation.",

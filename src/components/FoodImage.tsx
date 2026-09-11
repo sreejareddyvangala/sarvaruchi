@@ -54,6 +54,7 @@ export function FoodImage({
     <div className={cn("relative overflow-hidden bg-beige", RATIO[ratio], rounded, className)}>
       <img
         src={image.src}
+        srcSet={image.srcSet}
         alt={image.alt}
         sizes={sizes}
         loading={priority ? "eager" : "lazy"}
@@ -78,8 +79,7 @@ export function FoodImage({
 }
 
 /**
- * Used wherever the supplied menu material has no matching photograph —
- * notably the non-vegetarian courses, which are not pictured in either PDF.
+ * Used wherever there is no matching photograph for a dish.
  */
 export function TypographyPlate({
   label,
