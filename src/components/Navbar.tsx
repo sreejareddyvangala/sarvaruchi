@@ -144,16 +144,6 @@ export function Navbar() {
                 scrolled ? "h-11 sm:h-[3.25rem]" : "h-[3.4rem] sm:h-[4rem]",
               )}
             />
-            {isHome && (
-              <span
-                className={cn(
-                  "block whitespace-nowrap font-display text-[0.6rem] tracking-[0.06em] text-ink-muted transition-all duration-500",
-                  scrolled ? "mt-0 max-h-0 opacity-0" : "mt-0.5 max-h-4 opacity-100",
-                )}
-              >
-                {TAGLINE}
-              </span>
-            )}
           </Link>
 
           <nav aria-label="Primary" className="hidden items-center gap-1 min-[1024px]:flex">
