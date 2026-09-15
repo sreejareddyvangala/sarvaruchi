@@ -1,17 +1,12 @@
 /**
- * Testimonials shown on the home page.
- *
- * SAMPLE ENTRIES: these were written to lay out the section and are not the
- * words of real customers. Replace each one with a genuine review (with the
- * customer's permission) and delete its `sample` flag. While the flag is set,
- * the card is labelled "Sample review" on the page, so placeholder text is
- * never presented as a real customer's review.
+ * Client testimonials shown on the home page. The first entry is featured in the
+ * tall card; the grid is laid out for five.
  */
 
 export type TestimonialEvent =
-  | "Wedding"
-  | "Reception"
+  | "Wedding Celebration"
   | "House Warming"
+  | "Reception"
   | "Corporate Event"
   | "Family Celebration";
 
@@ -19,43 +14,37 @@ export type Testimonial = {
   name: string;
   eventType: TestimonialEvent;
   review: string;
-  sample?: boolean;
 };
 
 export const TESTIMONIALS: Testimonial[] = [
   {
-    name: "Lakshmi & Venkat",
-    eventType: "Wedding",
+    name: "Priya R.",
+    eventType: "Wedding Celebration",
     review:
-      "From the welcome drinks to the last dessert, every course felt considered. The biryani and the live chaat counter were the talk of the evening.",
-    sample: true,
+      "The food was absolutely delicious, and the presentation was beautiful. Every dish was fresh, flavourful, and enjoyed by all our guests. Truly a wonderful catering experience.",
   },
   {
-    name: "Arjun R.",
-    eventType: "Reception",
-    review:
-      "The starters kept guests happy all evening, and the copper handis made the buffet look beautiful.",
-    sample: true,
-  },
-  {
-    name: "Padma S.",
+    name: "Rahul K.",
     eventType: "House Warming",
     review:
-      "Homestyle food that tasted just right for our gruhapravesam, and we could spend the day with our guests.",
-    sample: true,
+      "We were extremely happy with the catering for our house warming. The food had authentic flavours, the service was excellent, and everything was managed perfectly.",
   },
   {
-    name: "Meera K.",
+    name: "Sneha M.",
+    eventType: "Reception",
+    review:
+      "From the quality of the food to the professional service, everything was excellent. Our guests loved the variety of dishes, and the entire experience was smooth and memorable.",
+  },
+  {
+    name: "Arjun S.",
     eventType: "Corporate Event",
     review:
-      "A thoughtful mix of Indian and Continental dishes for our team, neatly laid out and easy to plan.",
-    sample: true,
+      "Sarva Ruchi Kitchen delivered an amazing catering experience for our corporate event. The food was fresh, delicious, and beautifully presented. Highly recommended!",
   },
   {
-    name: "The Reddy Family",
+    name: "Lakshmi P.",
     eventType: "Family Celebration",
     review:
-      "Every family favourite we asked for was on the table, and the desserts disappeared first.",
-    sample: true,
+      "The food was one of the highlights of our family celebration. The flavours were authentic, the portions were generous, and everything was served with great care. We loved it!",
   },
 ];

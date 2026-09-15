@@ -111,12 +111,6 @@ function TestimonialCard({
           {testimonial.eventType}
         </span>
       </figcaption>
-
-      {testimonial.sample && (
-        <p className="mt-3 font-heading text-[0.55rem] uppercase tracking-[0.22em] text-cream/35">
-          Sample review
-        </p>
-      )}
     </figure>
   );
 }
