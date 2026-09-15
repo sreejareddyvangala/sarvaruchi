@@ -70,7 +70,7 @@ function Article({ post }: { post: BlogPost }) {
                 rel="noopener noreferrer"
                 className="underline decoration-gold/50 underline-offset-2 transition-colors hover:text-maroon"
               >
-                Wikimedia Commons
+                {photo.credit.site}
               </a>
             </figcaption>
           </figure>

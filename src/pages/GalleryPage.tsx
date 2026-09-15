@@ -12,7 +12,7 @@ import { Ornament } from "../components/Ornament";
 export function GalleryPage() {
   usePageMeta(
     "Food Gallery | " + BUSINESS_NAME,
-    "Photographs of wedding catering, house warming celebrations, Indian wedding food, corporate events and traditional celebrations.",
+    "Photographs of catering and food — buffet service, live counters, wedding feasts, corporate catering and traditional Indian dishes.",
   );
 
   return (
@@ -26,7 +26,7 @@ export function GalleryPage() {
         title="Our Food"
         description={
           GALLERY.length +
-          " photographs of weddings, house warmings, corporate events and traditional celebrations — filter by occasion, or tap any image to view it full size."
+          " photographs of catering and food — buffet service, live counters, wedding feasts and traditional dishes. Filter by occasion, or tap any image to view it full size."
         }
         actions={
           <>

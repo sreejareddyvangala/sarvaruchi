@@ -2,9 +2,9 @@
  * Blog articles, shown as cards on the home page and read at /blog/:slug.
  *
  * The articles are general planning advice and make no claims about the
- * business — no figures, awards or promises. Their photographs are openly
- * licensed stock, not the kitchen's own food, and each is credited on its
- * article page and in CREDITS.md.
+ * business — no figures, awards or promises. Their photographs are free stock
+ * from Unsplash and Pexels, not the kitchen's own food, and each is credited on
+ * its article page and in CREDITS.md.
  */
 
 export type BlogBlock =
@@ -20,7 +20,8 @@ export type BlogPhoto = {
   alt: string;
   /** CSS object-position, when the subject is off-centre */
   position?: string;
-  credit: { author: string; licence: string; licenceUrl: string; source: string };
+  /** `site` is the library the photograph came from, named in the caption */
+  credit: { author: string; licence: string; licenceUrl: string; source: string; site: string };
 };
 
 export type BlogPost = {
@@ -32,11 +33,28 @@ export type BlogPost = {
   body: BlogBlock[];
 };
 
-const photo = (slug: string, alt: string, credit: BlogPhoto["credit"]): BlogPhoto => ({
+const photo = (slug: string, alt: string, credit: BlogPhoto["credit"], position?: string): BlogPhoto => ({
   card: `/blog/${slug}-card.webp`,
   wide: `/blog/${slug}.webp`,
   alt,
+  position,
   credit,
+});
+
+const unsplash = (author: string, id: string): BlogPhoto["credit"] => ({
+  author,
+  licence: "Unsplash License",
+  licenceUrl: "https://unsplash.com/license",
+  source: `https://unsplash.com/photos/${id}`,
+  site: "Unsplash",
+});
+
+const pexels = (author: string, url: string): BlogPhoto["credit"] => ({
+  author,
+  licence: "Pexels License",
+  licenceUrl: "https://www.pexels.com/license/",
+  source: url,
+  site: "Pexels",
 });
 
 export const BLOG_POSTS: BlogPost[] = [
@@ -48,13 +66,8 @@ export const BLOG_POSTS: BlogPost[] = [
       "Guest count, cuisine, service style and tastings — the questions worth settling before you choose a wedding caterer.",
     photo: photo(
       "wedding-catering-guide",
-      "A row of hammered copper chafing dishes on brass stands, with handwritten dish labels, set out along a buffet counter",
-      {
-        author: "Armineaghayan",
-        licence: "CC BY-SA 4.0",
-        licenceUrl: "https://creativecommons.org/licenses/by-sa/4.0/",
-        source: "https://commons.wikimedia.org/wiki/File:Cuisine_of_India_by_ArmAg_(1).jpg",
-      },
+      "Dishes served in terracotta clay pots — a vegetable fry, curry and rice — with marigold petals and baskets of salad and rice on a catering table",
+      unsplash("Adil Murshed", "6QNkA7P3EhI"),
     ),
     body: [
       {
@@ -102,13 +115,8 @@ export const BLOG_POSTS: BlogPost[] = [
       "Traditional dishes, easy service at home and a relaxed flow of guests — ideas for a gruhapravesam feast that stays simple.",
     photo: photo(
       "house-warming-catering",
-      "A traditional vegetarian meal laid out on a banana leaf beside a brass water pot, with bowls of dal, curries and kadhi",
-      {
-        author: "Kashmira3091",
-        licence: "CC BY-SA 4.0",
-        licenceUrl: "https://creativecommons.org/licenses/by-sa/4.0/",
-        source: "https://commons.wikimedia.org/wiki/File:Chitpavan_Brahmin_Thali.jpg",
-      },
+      "A South Indian breakfast tray on a banana leaf — idlis, vadas, fritters, chutneys and a curry — beside a cup of frothy filter coffee",
+      unsplash("Mayur Roxan", "P1rkChTPQiI"),
     ),
     body: [
       {
@@ -150,13 +158,9 @@ export const BLOG_POSTS: BlogPost[] = [
       "From welcome drinks to dessert, how to build a balanced wedding spread with something for every guest.",
     photo: photo(
       "indian-wedding-menu",
-      "An Andhra-style meal on a banana leaf — rice, lemon rice, sambar, dal, curries, rotis, curd, podi and payasam",
-      {
-        author: "Anjanadevib",
-        licence: "CC BY-SA 4.0",
-        licenceUrl: "https://creativecommons.org/licenses/by-sa/4.0/",
-        source: "https://commons.wikimedia.org/wiki/File:Andhra_Combo_Meal.JPG",
-      },
+      "A hand in gold bangles serving from a copper handi of curry, surrounded by more curries in copper bowls, naan, lime wedges and a plate of noodles",
+      unsplash("Perspective Studio", "DUOpUlw4uLY"),
+      "50% 40%",
     ),
     body: [
       {
@@ -204,13 +208,9 @@ export const BLOG_POSTS: BlogPost[] = [
       "Conferences, offsites and office celebrations — food that keeps the day on schedule and suits a varied team.",
     photo: photo(
       "corporate-catering",
-      "Steel buffet pans of mixed vegetables and other hot dishes, with serving tongs, along a catering counter",
-      {
-        author: "Armineaghayan",
-        licence: "CC BY-SA 4.0",
-        licenceUrl: "https://creativecommons.org/licenses/by-sa/4.0/",
-        source: "https://commons.wikimedia.org/wiki/File:Cuisine_of_India_by_ArmAg_(3).jpg",
-      },
+      "Guests in suits and ties serving themselves from a line of steel chafing dishes of curries, rice and vegetables, with a chef in whites standing by",
+      pexels("Mick Latter", "https://www.pexels.com/photo/men-in-suits-choosing-food-from-table-18749086/"),
+      "50% 70%",
     ),
     body: [
       {
@@ -252,14 +252,8 @@ export const BLOG_POSTS: BlogPost[] = [
       "How regional recipes, whole spices and time-honoured sweets can give today's celebrations a sense of heritage.",
     photo: photo(
       "traditional-indian-flavours",
-      "Mounds of ground Indian spices — chilli, turmeric, coriander and cumin — in open sacks with steel scoops at a market stall",
-      {
-        author: "sara marlowe",
-        licence: "CC BY 2.0",
-        licenceUrl: "https://creativecommons.org/licenses/by/2.0/",
-        source:
-          "https://commons.wikimedia.org/wiki/File:Indian_spices_for_sale_at_the_Anjuna_flea-market,_Anjuna_Beach,_Goa.jpg",
-      },
+      "Whole and ground spices on a dark surface — dried red chillies, cloves, cinnamon, cardamom, turmeric roots, chilli powder and turmeric in silver spoons — with a sprig of curry leaves",
+      unsplash("Anju Ravindranath", "Nihdo084Yos"),
     ),
     body: [
       {

@@ -7,7 +7,7 @@ export function NotFound() {
   return (
     <section className="bg-parchment-texture px-4 py-32 text-center sm:px-6">
       <div className="mx-auto flex max-w-lg flex-col items-center">
-        <img src={BRAND_ASSETS.emblem} alt="" className="h-16 w-auto object-contain opacity-80" />
+        <img src={BRAND_ASSETS.emblem} alt="" width={479} height={578} className="h-20 w-auto object-contain opacity-80" />
         <p className="eyebrow mt-6">Page Not Found</p>
         <h1 className="mt-3 font-display text-4xl text-maroon">We couldn't find that page</h1>
         <Ornament className="mt-5" />

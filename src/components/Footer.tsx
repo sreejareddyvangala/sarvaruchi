@@ -14,9 +14,9 @@ export function Footer() {
             <img
               src={BRAND_ASSETS.emblem}
               alt=""
-              width={512}
-              height={434}
-              className="h-16 w-auto object-contain"
+              width={479}
+              height={578}
+              className="h-20 w-auto object-contain"
             />
             <p className="mt-4 font-display text-3xl font-bold leading-none text-gold-foil">
               {BUSINESS_NAME}

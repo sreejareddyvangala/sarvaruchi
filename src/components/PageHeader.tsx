@@ -42,9 +42,9 @@ export function PageHeader({
         <img
           src={BRAND_ASSETS.emblem}
           alt=""
-          width={512}
-          height={434}
-          className="h-14 w-auto object-contain sm:h-16"
+          width={479}
+          height={578}
+          className="h-[4.5rem] w-auto object-contain sm:h-20"
         />
 
         <p className="eyebrow mt-4 text-gold-light">{eyebrow}</p>
