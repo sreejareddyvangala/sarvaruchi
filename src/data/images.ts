@@ -13,7 +13,7 @@ export type FoodImage = {
   alt: string;
   /** smaller rendition for tiles, where one exists */
   srcSet?: string;
-  /** photographer credit, shown in the gallery viewer */
+  /** photographer credit, recorded for CREDITS.md and not shown on the site */
   credit?: string;
 };
 

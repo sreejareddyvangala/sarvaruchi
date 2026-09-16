@@ -115,8 +115,8 @@ export const BLOG_POSTS: BlogPost[] = [
       "Traditional dishes, easy service at home and a relaxed flow of guests — ideas for a gruhapravesam feast that stays simple.",
     photo: photo(
       "house-warming-catering",
-      "A South Indian breakfast tray on a banana leaf — idlis, vadas, fritters, chutneys and a curry — beside a cup of frothy filter coffee",
-      unsplash("Mayur Roxan", "P1rkChTPQiI"),
+      "Idlis with sambar and chutneys in white bowls, laid out on a banana leaf",
+      unsplash("Mayur Roxan", "V0pCYv4_ZZ0"),
     ),
     body: [
       {

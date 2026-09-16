@@ -27,10 +27,14 @@ alteration was made.
 | Article | Photographer | Licence | Page |
 | --- | --- | --- | --- |
 | How to Choose the Right Catering for Your Wedding | Adil Murshed | Unsplash License | https://unsplash.com/photos/6QNkA7P3EhI |
-| Best Catering Ideas for House Warming Celebrations | Mayur Roxan | Unsplash License | https://unsplash.com/photos/P1rkChTPQiI |
+| Best Catering Ideas for House Warming Celebrations | Mayur Roxan | Unsplash License | https://unsplash.com/photos/V0pCYv4_ZZ0 |
 | Planning the Perfect Indian Wedding Menu | Perspective Studio | Unsplash License | https://unsplash.com/photos/DUOpUlw4uLY |
 | Catering Ideas for Corporate Events | Mick Latter | Pexels License | https://www.pexels.com/photo/men-in-suits-choosing-food-from-table-18749086/ |
 | Traditional Indian Flavours for Modern Celebrations | Anju Ravindranath | Unsplash License | https://unsplash.com/photos/Nihdo084Yos |
+
+The House Warming cover is the same photograph as the gallery's
+`housewarming-idli-breakfast`, cut from its 1600×1200 copy, so its 1920×1280
+rendition is slightly enlarged.
 
 ## Gallery and About photographs
 

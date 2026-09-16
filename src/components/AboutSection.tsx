@@ -8,8 +8,8 @@ import { ArrowRightIcon } from "./Icons";
 // service highlights, each one already described elsewhere on the site
 const FACTS = [
   { value: "Veg & Non-Veg", label: "Catering Options" },
-  { value: "Live Counters", label: "Chaat & Podi Stations" },
-  { value: "Every Occasion", label: "Weddings to Corporate Events" },
+  { value: "Live Counters", label: "Chaat & Tiffin Stations" },
+  { value: "Beverages", label: "Drinks & Mocktails" },
 ];
 
 export function AboutSection() {
@@ -53,7 +53,7 @@ export function AboutSection() {
             </p>
             <p className="mt-4 text-[0.95rem] leading-relaxed text-ink-muted">
               Our kitchen runs from Andhra and Telangana home cooking to Punjabi dhaba classics,
-              South Indian breakfasts, live chaat and podi counters, Pan Asian and Continental
+              South Indian breakfasts, live chaat and tiffin counters, Pan Asian and Continental
               courses, and a dessert list that stretches from heritage Indian sweets to pastry,
               cheesecake and an ice cream parlour. Both vegetarian and premium non-vegetarian
               catering are available, and every event is planned course by course with you.

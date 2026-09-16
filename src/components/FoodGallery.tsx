@@ -35,7 +35,6 @@ export function FoodGallery({
           src: image?.src ?? "",
           alt: image?.alt ?? item.caption,
           caption: item.caption,
-          credit: image?.credit,
         };
       }),
     [visible],

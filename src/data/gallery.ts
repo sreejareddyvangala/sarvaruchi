@@ -3,7 +3,7 @@
  * live counters and dishes — never venues, décor or the events themselves.
  * Photographs are filed under the occasion of one of the blog articles, so the
  * gallery and the blog tell the same story. They are free stock (Unsplash and
- * Pexels) and credited in the gallery viewer and in CREDITS.md.
+ * Pexels), credited in CREDITS.md.
  */
 
 export const GALLERY_FILTERS = [

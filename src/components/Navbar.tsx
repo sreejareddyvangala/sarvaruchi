@@ -138,7 +138,7 @@ export function Navbar() {
               src={BRAND_ASSETS.logoTransparent}
               alt={BUSINESS_NAME + " logo"}
               width={900}
-              height={918}
+              height={874}
               className={cn(
                 "w-auto object-contain transition-all duration-500 ease-out",
                 scrolled ? "h-11 sm:h-[3.25rem]" : "h-[3.4rem] sm:h-[4rem]",
@@ -225,23 +225,20 @@ export function Navbar() {
 
           <nav aria-label="Mobile" className="flex-1 overflow-y-auto px-5 py-6">
             <ul className="flex flex-col gap-1">
-              {HEADER_NAV_LINKS.map((link, i) => (
+              {HEADER_NAV_LINKS.map((link) => (
                 <li key={link.label}>
                   <NavLink
                     to={link.to}
                     tabIndex={open ? 0 : -1}
                     onClick={() => setOpen(false)}
                     className={cn(
-                      "flex items-center justify-between rounded-xl px-4 py-3.5 font-display text-xl font-semibold transition-colors",
+                      "flex items-center rounded-xl px-4 py-3.5 font-display text-xl font-semibold transition-colors",
                       isActive(link.to)
                         ? "bg-beige/80 text-maroon"
                         : "text-ink-soft hover:bg-beige/60 hover:text-maroon",
                     )}
                   >
                     {link.label}
-                    <span className="font-heading text-[0.65rem] tracking-widest text-gold-deep">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
                   </NavLink>
                 </li>
               ))}
