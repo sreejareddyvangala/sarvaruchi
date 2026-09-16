@@ -102,12 +102,10 @@ export function WhatsAppProvider({ children }: { children: ReactNode }) {
                       >
                         {isCall ? <PhoneIcon className="size-5" /> : <WhatsAppIcon className="size-5" />}
                       </span>
-                      {/* the line is named rather than numbered: the numbers stay
-                          in the configuration for the wa.me link, but are never
-                          shown anywhere in the interface */}
+                      {/* lining figures: the display face sets old-style numerals by default */}
                       <span className="min-w-0">
-                        <span className="block font-display text-lg font-semibold text-maroon">
-                          {line.label}
+                        <span className="block font-display text-xl font-semibold lining-nums text-maroon">
+                          {line.display}
                         </span>
                       </span>
                     </a>

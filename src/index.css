@@ -46,7 +46,7 @@
     overflow-x: hidden;
     scroll-behavior: smooth;
     /* clears the sticky header when jumping to an anchor */
-    scroll-padding-top: 6.5rem;
+    scroll-padding-top: 7rem;
     -webkit-text-size-adjust: 100%;
   }
 

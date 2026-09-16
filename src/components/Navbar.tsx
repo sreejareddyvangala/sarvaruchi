@@ -126,7 +126,7 @@ export function Navbar() {
         <div
           className={cn(
             "mx-auto flex w-full max-w-[84rem] items-center justify-between gap-4 px-4 transition-[height] duration-500 ease-out sm:px-6 lg:px-8",
-            scrolled ? "h-[3.75rem] sm:h-[4.25rem]" : "h-[4.75rem] sm:h-[5.5rem]",
+            scrolled ? "h-[4.25rem] sm:h-[4.75rem]" : "h-[5.75rem] sm:h-[6.75rem]",
           )}
         >
           <Link
@@ -141,7 +141,7 @@ export function Navbar() {
               height={874}
               className={cn(
                 "w-auto object-contain transition-all duration-500 ease-out",
-                scrolled ? "h-11 sm:h-[3.25rem]" : "h-[3.4rem] sm:h-[4rem]",
+                scrolled ? "h-[3.5rem] sm:h-[4rem]" : "h-[4.75rem] sm:h-[5.75rem]",
               )}
             />
           </Link>
@@ -210,7 +210,7 @@ export function Navbar() {
             <img
               src={BRAND_ASSETS.logoTransparent}
               alt={BUSINESS_NAME + " logo"}
-              className="h-12 w-auto object-contain"
+              className="h-16 w-auto object-contain"
             />
             <button
               type="button"

@@ -19,9 +19,9 @@ export function PageHeader({
   breadcrumb?: { label: string; to: string }[];
 }) {
   return (
-    <section className="relative overflow-hidden bg-maroon-texture pb-12 pt-28 sm:pb-14 sm:pt-32 lg:pb-16 lg:pt-36">
-      <CornerFlourish className="absolute -left-3 top-20 size-28 text-gold/25 sm:size-36" position="top-left" />
-      <CornerFlourish className="absolute -right-3 top-20 size-28 text-gold/25 sm:size-36" position="top-right" />
+    <section className="relative overflow-hidden bg-maroon-texture pb-12 pt-32 sm:pb-14 sm:pt-37 lg:pb-16 lg:pt-41">
+      <CornerFlourish className="absolute -left-3 top-24 size-28 text-gold/25 sm:size-36" position="top-left" />
+      <CornerFlourish className="absolute -right-3 top-24 size-28 text-gold/25 sm:size-36" position="top-right" />
 
       <div className="relative mx-auto flex w-full max-w-[84rem] flex-col items-center px-4 text-center sm:px-6 lg:px-8">
         {breadcrumb && (

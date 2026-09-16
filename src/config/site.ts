@@ -16,7 +16,6 @@ export const WHATSAPP_NUMBER_2 = "919246583155";
 
 export type ContactLine = {
   id: "line-1" | "line-2";
-  label: string;
   /** Display form, e.g. "+91 9494222493" */
   display: string;
   /** tel: form, e.g. "+919494222493" */
@@ -28,14 +27,12 @@ export type ContactLine = {
 export const CONTACT_LINES: ContactLine[] = [
   {
     id: "line-1",
-    label: "Enquiry Line 1",
     display: PHONE_NUMBER_1,
     tel: PHONE_NUMBER_1.replace(/\s/g, ""),
     whatsapp: WHATSAPP_NUMBER_1,
   },
   {
     id: "line-2",
-    label: "Enquiry Line 2",
     display: PHONE_NUMBER_2,
     tel: PHONE_NUMBER_2.replace(/\s/g, ""),
     whatsapp: WHATSAPP_NUMBER_2,

@@ -25,8 +25,8 @@ export function Hero() {
         className="pointer-events-none absolute -left-8 bottom-0 top-0 hidden h-full w-auto select-none opacity-80 md:block"
       />
 
-      <div className="relative mx-auto w-full max-w-[84rem] px-4 sm:px-6 lg:grid lg:min-h-[calc(100vh-5.5rem)] lg:grid-cols-[minmax(0,28rem)_minmax(0,1fr)] lg:items-center lg:gap-10 lg:px-8 xl:grid-cols-[minmax(0,32rem)_minmax(0,1fr)] xl:gap-14">
-        <div className="flex flex-col justify-center pb-10 pt-[6.5rem] sm:pt-[7.5rem] lg:pb-8 lg:pt-[8.5rem]">
+      <div className="relative mx-auto w-full max-w-[84rem] px-4 sm:px-6 lg:grid lg:min-h-[calc(100vh-6.75rem)] lg:grid-cols-[minmax(0,28rem)_minmax(0,1fr)] lg:items-center lg:gap-10 lg:px-8 xl:grid-cols-[minmax(0,32rem)_minmax(0,1fr)] xl:gap-14">
+        <div className="flex flex-col justify-center pb-10 pt-[7.5rem] sm:pt-[8.75rem] lg:pb-8 lg:pt-[9.75rem]">
           {/* PREMIUM CATERING, flanked by gold rules */}
           <div className="flex items-center gap-3">
             <span className="h-px w-8 bg-gradient-to-r from-transparent to-gold" aria-hidden="true" />
@@ -74,7 +74,7 @@ export function Hero() {
         {/* the whole photograph beside the copy — large screens. The column
             carries the same top and bottom padding as the copy, so the two
             centre on the same line below the fixed header. */}
-        <div className="hidden lg:block lg:pb-8 lg:pt-[8.5rem]">
+        <div className="hidden lg:block lg:pb-8 lg:pt-[9.75rem]">
           <img
             src={HERO.src}
             alt={HERO.alt}
